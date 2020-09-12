@@ -1,24 +1,40 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+/chat-backend/node_modules
+/chat-frontend/node_modules
+/chat-backend/.pnp
+/chat-frontend/.pnp
+/chat-backend/.pnp.js
+/chat-frontend/.pnp.js
 
 # testing
-/coverage
+/chat-backend/coverage
+/chat-frontend/coverage
 
 # production
-/build
+/chat-backend/build
+/chat-frontend/build
 
 # misc
-.idea
+/chat-backend/.idea
+/chat-frontend/.idea
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.idea
+/chat-backend/.DS_Store
+/chat-frontend/.DS_Store
+/chat-backend/.env.local
+/chat-frontend/.env.local
+/chat-backend/.env.development.local
+/chat-frontend/.env.development.local
+/chat-backend/.env.test.local
+/chat-frontend/.env.test.local
+/chat-backend/.env.production.local
+/chat-frontend/.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/chat-backend/npm-debug.log*
+/chat-frontend/npm-debug.log*
+/chat-backend/yarn-debug.log*
+/chat-frontend/yarn-debug.log*
+/chat-backend/yarn-error.log*
+/chat-frontend/yarn-error.log*
