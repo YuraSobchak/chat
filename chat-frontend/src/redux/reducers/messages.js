@@ -1,22 +1,17 @@
 const initialState = {
-    items: [],
-    currentDialogId: null,
-    isLoading: false
+    items: null,
+    isLoading: false,
 };
 
 export default (state = initialState, {type, payload}) => {
     switch (type) {
-        case 'DIALOGS:SET_ITEMS':
+        case 'MESSAGES:SET_ITEMS':
             return {
                 ...state,
-                items: payload
+                items: payload,
+                isLoading: false
             };
-        case 'DIALOGS:SET_CURRENT_DIALOG_ID':
-            return {
-                ...state,
-                currentDialogId: payload
-            };
-        case 'DIALOGS:SET_IS_LOADING':
+        case 'MESSAGES:SET_IS_LOADING':
             return {
                 ...state,
                 isLoading: payload

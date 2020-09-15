@@ -1,93 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Empty } from "antd";
+import { Empty, Spin } from "antd";
+import classNames from 'classnames';
 
 import { Message } from "../index";
 
-const Messages = ({ items }) => {
-    return items ? (
-        <div>
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000204201549-x5dej8-t500x500.jpg"
-                date={new Date()}
-                audio="https://freesound.org/data/previews/534/534017_321967-lq.mp3"
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg"
-                text="Hello, bro!"
-                date={Date.now()}
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000204201549-x5dej8-t500x500.jpg"
-                date={Date.now()}
-                isMe={true}
-                isRead={false}
-                attachments={[
-                    {
-                        filename: 'image.jpg',
-                        url: 'https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg'
-                    }
-                ]}
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg"
-                isTyping
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000204201549-x5dej8-t500x500.jpg"
-                date={new Date()}
-                audio="https://freesound.org/data/previews/534/534017_321967-lq.mp3"
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg"
-                text="Hello, bro!"
-                date={Date.now()}
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000204201549-x5dej8-t500x500.jpg"
-                date={Date.now()}
-                isMe={true}
-                isRead={false}
-                attachments={[
-                    {
-                        filename: 'image.jpg',
-                        url: 'https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg'
-                    }
-                ]}
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg"
-                isTyping
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000204201549-x5dej8-t500x500.jpg"
-                date={new Date()}
-                audio="https://freesound.org/data/previews/534/534017_321967-lq.mp3"
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg"
-                text="Hello, bro!"
-                date={Date.now()}
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000204201549-x5dej8-t500x500.jpg"
-                date={Date.now()}
-                isMe={true}
-                isRead={false}
-                attachments={[
-                    {
-                        filename: 'image.jpg',
-                        url: 'https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg'
-                    }
-                ]}
-            />
-            <Message
-                avatar="https://i1.sndcdn.com/artworks-000211382041-014zjh-t500x500.jpg"
-                isTyping
-            />
+import './Messages.scss';
+
+const Messages = ({ blockRef, isLoading, items }) => {
+    return (
+        <div
+            ref={blockRef}
+            className={classNames("messages", {'messages--loading': isLoading})}
+        >
+            {isLoading ? (
+                <Spin size="large" tip="Loading..."/>
+            ) : items && !isLoading ? (
+                items.length > 0 ? (
+                    items.map(item => <Message key={item._id} {...item} />)
+                ) : (
+                    <Empty/>
+                )
+            ) : (
+                <Empty/>
+            )}
         </div>
-    ) : (
-        <Empty/>
     );
 };
 

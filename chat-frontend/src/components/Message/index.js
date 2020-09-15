@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Time, IconRead } from "../index";
+import {Time, IconRead, Avatar} from "../index";
 import { convertCurrentTime } from "../../utils/helpers";
 
 import waveSvg from '../../assets/img/wave.svg';
@@ -67,7 +67,7 @@ const MessageAudio = ({audioSrc}) => {
     );
 };
 
-const Message = ({avatar, user, text, date, audio, isMe, isRead, attachments, isTyping}) => {
+const Message = ({user, text, date, audio, isMe, isRead, attachments, isTyping}) => {
     return (
         <div
             className={classNames('message', {
@@ -80,7 +80,7 @@ const Message = ({avatar, user, text, date, audio, isMe, isRead, attachments, is
             <div className="message__content">
                 <IconRead isMe={isMe} isRead={isRead}/>
                 <div className="message__avatar">
-                    <img src={avatar} alt={`Avatar ${user.fullname}`}/>
+                    <Avatar user={user}/>
                 </div>
                 <div className="message__info">
                     {(audio || text || isTyping) &&

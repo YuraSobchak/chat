@@ -6,7 +6,7 @@ import { DialogItem } from "../index";
 
 import './Dialogs.scss';
 
-const Dialogs = ({ items, userId, onSearch, inputValue }) => {
+const Dialogs = ({ items, userId, onSearch, inputValue, onSelectDialog }) => {
     return (
         <div className="dialogs">
             <div className="dialogs__search">
@@ -18,7 +18,12 @@ const Dialogs = ({ items, userId, onSearch, inputValue }) => {
             </div>
             {items.length ? (
                 orderBy(items, ['created_at'], ['desc']).map(item => (
-                    <DialogItem key={item._id} isMe={item.user._id === userId} {...item}/>
+                    <DialogItem
+                        onSelect={onSelectDialog}
+                        key={item._id}
+                        isMe={item.user._id === userId}
+                        {...item}
+                    />
                 ))
             ) : (
                 <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}/>
