@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import format from 'date-fns/format';
-import { parseISO } from 'date-fns';
+import {parseISO} from 'date-fns';
 import isToday from 'date-fns/isToday';
 
-import { IconRead, Avatar } from "../index";
+import {IconRead, Avatar} from "../index";
 
 const getMessageTime = created_at => {
     if (isToday(parseISO(created_at))) {
@@ -17,11 +17,21 @@ const getMessageTime = created_at => {
     }
 };
 
-const DialogItem = ({_id, user, unread, created_at, text, isMe, onSelect}) => {
+const DialogItem = ({
+    _id,
+    user,
+    unread,
+    created_at,
+    text,
+    isMe,
+    currentDialogId,
+    onSelect
+}) => {
     return (
         <div
             className={classNames("dialogs__item", {
-                'dialogs__item--online': user.isOnline
+                'dialogs__item--online': user.isOnline,
+                'dialogs__item--selected': currentDialogId === _id
             })}
             onClick={onSelect.bind(this, _id)}
         >
@@ -39,7 +49,8 @@ const DialogItem = ({_id, user, unread, created_at, text, isMe, onSelect}) => {
                     <p>{text}</p>
                     {isMe ?
                         <IconRead isMe={true} isRead={true}/>
-                        : (unread > 0) && <div className="dialogs__item-info-bottom-count">{unread > 9 ? '9+' : unread}</div>
+                        : (unread > 0) &&
+                        <div className="dialogs__item-info-bottom-count">{unread > 9 ? '9+' : unread}</div>
                     }
                 </div>
             </div>

@@ -5,27 +5,19 @@
       <change afterPath="$PROJECT_DIR$/../Artic/assets/css/styles.less" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Artic/src/Repository/UsersRepository.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../FC Grand/.idea/FC Grand.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-frontend/src/components/Messages/Messages.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-frontend/src/containers/Messages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-frontend/src/redux/actions/messages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-frontend/src/redux/reducers/messages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-frontend/src/utils/api/messages.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../react-learning/.idea/react-learning.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/ChatInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/ChatInput.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/DialogItem/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/DialogItem/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/Dialogs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/Dialogs.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/Message/Message.scss" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/Message/Message.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/Message/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/Message/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/Messages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/Messages/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-frontend/src/containers/Dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/containers/Dialogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/containers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/containers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/pages/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/pages/Home/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/redux/actions/dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/redux/actions/dialogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/redux/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/redux/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/redux/reducers/dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/redux/reducers/dialogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-frontend/src/styles/layouts/_chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/styles/layouts/_chat.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/utils/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/utils/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +116,12 @@
       <workItem from="1600101531893" duration="663000" />
       <workItem from="1600150705823" duration="107000" />
       <workItem from="1600157866402" duration="149000" />
-      <workItem from="1600174686128" duration="5390000" />
+      <workItem from="1600174686128" duration="5591000" />
+      <workItem from="1600234401348" duration="154000" />
+      <workItem from="1600249227387" duration="942000" />
+      <workItem from="1600327808893" duration="161000" />
+      <workItem from="1600346647273" duration="553000" />
+      <workItem from="1600349444648" duration="3557000" />
     </task>
     <servers />
   </component>
@@ -157,10 +154,10 @@
       <screen x="0" y="23" width="1440" height="790" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.790@0.23.1440.790" timestamp="1599066520456" />
-    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600183470456">
+    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600356721764">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1600183470456" />
+    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1600356721764" />
     <state x="378" y="64" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.797@0.23.1440.797" timestamp="1599892893940" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1599136431112">
       <screen x="0" y="0" width="1440" height="900" />
