@@ -5,19 +5,16 @@
       <change afterPath="$PROJECT_DIR$/../Artic/assets/css/styles.less" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Artic/src/Repository/UsersRepository.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../FC Grand/.idea/FC Grand.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/controllers/UserController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/controllers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/schemas/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/tsconfig.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../react-learning/.idea/react-learning.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/ChatInput.scss" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/ChatInput.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/ChatInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/DialogItem/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/DialogItem/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/Dialogs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/Dialogs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/components/Dialogs/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/containers/Dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/containers/Dialogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/src/styles/layouts/_chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/src/styles/layouts/_chat.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/chat-frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +46,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/chat-backend/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -121,7 +118,14 @@
       <workItem from="1600249227387" duration="942000" />
       <workItem from="1600327808893" duration="161000" />
       <workItem from="1600346647273" duration="553000" />
-      <workItem from="1600349444648" duration="3557000" />
+      <workItem from="1600349444648" duration="4114000" />
+      <workItem from="1600449871709" duration="117000" />
+      <workItem from="1600498681916" duration="148000" />
+      <workItem from="1600541702239" duration="228000" />
+      <workItem from="1600586466263" duration="138000" />
+      <workItem from="1600766731187" duration="340000" />
+      <workItem from="1600846883845" duration="232000" />
+      <workItem from="1600854660580" duration="8944000" />
     </task>
     <servers />
   </component>
@@ -150,18 +154,19 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599304960581" />
-    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1599066520456">
-      <screen x="0" y="23" width="1440" height="790" />
+    <state x="100" y="88" width="1240" height="798" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600969362008">
+      <screen x="0" y="23" width="1440" height="793" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.790@0.23.1440.790" timestamp="1599066520456" />
-    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600356721764">
+    <state x="100" y="88" width="1240" height="798" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.793@0.23.1440.793" timestamp="1600969362008" />
+    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600973299990">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1600356721764" />
+    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1600973299990" />
     <state x="378" y="64" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.797@0.23.1440.797" timestamp="1599892893940" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1599136431112">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1600969688664">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599136431112" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600969688664" />
   </component>
 </project>
