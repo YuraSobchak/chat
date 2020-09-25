@@ -21,11 +21,11 @@ const UserSchema: Schema = new Schema(
         },
         fullname: {
             type: String,
-            required: "Fullname is required",
+            require: "Fullname is required",
         },
         password: {
             type: String,
-            required: "Password is required",
+            require: "Password is required",
         },
         confirmed: {
             type: Boolean,

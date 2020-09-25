@@ -5,16 +5,17 @@
       <change afterPath="$PROJECT_DIR$/../Artic/assets/css/styles.less" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Artic/src/Repository/UsersRepository.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../FC Grand/.idea/FC Grand.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-backend/src/controllers/UserController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-backend/src/controllers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-backend/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-backend/src/schemas/User.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-backend/src/schemas/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-backend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/controllers/DialogController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/controllers/MessageController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/models/Dialog.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-backend/src/models/Message.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../react-learning/.idea/react-learning.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-backend/src/controllers/UserController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/src/controllers/UserController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-backend/src/controllers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/src/controllers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-backend/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-backend/src/schemas/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/src/models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-backend/src/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/chat-backend/src/models/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/chat-frontend/src/utils/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/chat-backend/src/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -50,11 +51,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/chat-backend/src/models" />
       <recent name="$PROJECT_DIR$/chat-frontend/src/utils/api" />
       <recent name="$PROJECT_DIR$/chat-frontend/src/redux/reducers" />
       <recent name="$PROJECT_DIR$/chat-frontend/src/redux/actions" />
       <recent name="$PROJECT_DIR$/chat-frontend/src/containers" />
-      <recent name="$PROJECT_DIR$/src/redux/resources" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -125,7 +126,7 @@
       <workItem from="1600586466263" duration="138000" />
       <workItem from="1600766731187" duration="340000" />
       <workItem from="1600846883845" duration="232000" />
-      <workItem from="1600854660580" duration="8944000" />
+      <workItem from="1600854660580" duration="16266000" />
     </task>
     <servers />
   </component>
@@ -159,10 +160,10 @@
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.790@0.23.1440.790" timestamp="1599066520456" />
     <state x="100" y="88" width="1240" height="798" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.793@0.23.1440.793" timestamp="1600969362008" />
-    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600973299990">
+    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601015419445">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1600973299990" />
+    <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1601015419445" />
     <state x="378" y="64" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.797@0.23.1440.797" timestamp="1599892893940" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1600969688664">
       <screen x="0" y="0" width="1440" height="900" />
