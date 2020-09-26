@@ -1,5 +1,5 @@
-import {UserModel} from "../models";
 import express from "express";
+import {UserModel} from "../models";
 
 export default (req: express.Request, res: express.Response, next: express.NextFunction) => {
     UserModel.updateOne(
