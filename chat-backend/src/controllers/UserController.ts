@@ -1,4 +1,7 @@
 import express from 'express';
+import bcrypt from 'bcrypt';
+import { validationResult, Result, ValidationError } from "express-validator";
+
 import {UserModel} from "../models";
 import {IUser} from "../models/User";
 import {createJWTToken} from "../utils";
@@ -55,35 +58,39 @@ class UserController {
             });
     };
 
-    login(req: express.Request, res: express.Response) {
-        const postData = {
+    login = (req: express.Request, res: express.Response): void => {
+        const postData: { email: string; password: string } = {
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
         };
 
-        UserModel.findOne({ email: postData.email }, (err, user: IUser) => {
-            if (err) {
-                return res.status(404).json({
-                    message: "Not found"
-                });
-            }
+        const errors: Result<ValidationError> = validationResult(req);
 
-            if (user.password === postData.password) {
-                const token = createJWTToken(user);
+        if (!errors.isEmpty()) {
+            res.status(422).json({ errors: errors.array() });
+        } else {
+            UserModel.findOne({email: postData.email}, (err, user: IUser) => {
+                if (err || !user) {
+                    return res.status(404).json({
+                        message: "User not found",
+                    });
+                }
 
-                res.json({
-                    status: 'success',
-                    token
-                })
-            } else {
-                res.json({
-                    status: 'error',
-                    message: 'Incorrect password or email'
-                })
-            }
-        });
-
-    }
+                if (bcrypt.compareSync(postData.password, user.password)) {
+                    const token = createJWTToken(user);
+                    res.json({
+                        status: "success",
+                        token,
+                    });
+                } else {
+                    res.status(403).json({
+                        status: "error",
+                        message: "Incorrect password or email",
+                    });
+                }
+            });
+        }
+    };
 }
 
 export default UserController;
