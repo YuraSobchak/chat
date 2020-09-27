@@ -20,7 +20,7 @@ export default (user: ILoginData) => {
                 {}
             ),
         },
-        process.env.JWT_SECRET || "",
+        process.env.JWT_TOKEN || "",
         {
             expiresIn: process.env.JWT_MAX_AGE,
             algorithm: "HS256",

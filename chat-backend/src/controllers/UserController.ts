@@ -69,7 +69,7 @@ class UserController {
             }
 
             if (user.password === postData.password) {
-                const token = createJWTToken(postData);
+                const token = createJWTToken(user);
 
                 res.json({
                     status: 'success',

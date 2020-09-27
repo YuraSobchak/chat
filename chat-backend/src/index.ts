@@ -11,7 +11,7 @@ dotenv.config();
 
 app.use(bodyParser.json());
 app.use(updateLastSeen);
-// app.use(checkAuth);
+app.use(checkAuth);
 
 const User = new UserController();
 const Dialog = new DialogController();
