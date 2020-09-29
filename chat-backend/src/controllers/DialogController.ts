@@ -1,9 +1,16 @@
 import express from 'express';
+import socket from 'socket.io';
+
 import { DialogModel, MessageModel } from "../models";
 
 class DialogController {
+    io: socket.Server;
 
-    index = (req: express.Request, res: express.Response): void => {
+    constructor(io: socket.Server) {
+        this.io = io;
+    }
+
+    index = (req: any, res: express.Response): void => {
         const userId = req.user._id;
 
         DialogModel.find()

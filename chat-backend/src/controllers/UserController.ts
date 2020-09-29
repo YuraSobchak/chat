@@ -5,8 +5,14 @@ import { validationResult, Result, ValidationError } from "express-validator";
 import {UserModel} from "../models";
 import {IUser} from "../models/User";
 import {createJWTToken} from "../utils";
+import socket from "socket.io";
 
 class UserController {
+    io: socket.Server;
+
+    constructor(io: socket.Server) {
+        this.io = io;
+    }
 
     show(req: express.Request, res: express.Response) {
         const id: string = req.params.id;
@@ -20,7 +26,7 @@ class UserController {
         });
     }
 
-    me(req: express.Request, res: express.Response) {
+    me(req: any, res: express.Response) {
         const id: string = req.user._id;
         UserModel.findById(id, (err, user) => {
             if (err) {

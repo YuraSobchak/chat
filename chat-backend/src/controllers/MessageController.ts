@@ -1,7 +1,14 @@
 import express from 'express';
+import socket from 'socket.io';
+
 import { MessageModel } from "../models";
 
 class MessageController {
+    io: socket.Server;
+
+    constructor(io: socket.Server) {
+        this.io = io;
+    }
 
     index = (req: express.Request, res: express.Response): void => {
         const dialogId = req.params.dialog;
@@ -18,7 +25,7 @@ class MessageController {
             });
     };
 
-    create(req: express.Request, res: express.Response) {
+    create(req: any, res: express.Response) {
         const userId: string = req.user._id;
 
         const postData = {
