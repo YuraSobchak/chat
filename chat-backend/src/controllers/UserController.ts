@@ -20,6 +20,18 @@ class UserController {
         });
     }
 
+    me(req: express.Request, res: express.Response) {
+        const id: string = req.user._id;
+        UserModel.findById(id, (err, user) => {
+            if (err) {
+                return res.status(404).json({
+                    message: "Not found"
+                });
+            }
+            res.json(user);
+        });
+    }
+
     create(req: express.Request, res: express.Response) {
         const postData = {
             email: req.body.email,
