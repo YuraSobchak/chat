@@ -4,7 +4,10 @@ import { DialogModel, MessageModel } from "../models";
 class DialogController {
 
     index = (req: express.Request, res: express.Response): void => {
+        const userId = req.user._id;
+
         DialogModel.find()
+            .or([{ author: userId }, { partner: userId }])
             .populate(['author', 'partner'])
             .populate({
                 path: 'lastMessage',
