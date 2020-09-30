@@ -32,7 +32,7 @@ class DialogController {
             });
     };
 
-    create(req: express.Request, res: express.Response) {
+    create = (req: express.Request, res: express.Response): void => {
         const postData = {
             author: req.body.author,
             partner: req.body.partner,
@@ -59,7 +59,7 @@ class DialogController {
                 res.json(reason);
             })
         ;
-    }
+    };
 
     delete = (req: express.Request, res: express.Response): void => {
         const id: string = req.params.id;

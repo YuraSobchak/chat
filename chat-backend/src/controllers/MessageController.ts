@@ -25,7 +25,7 @@ class MessageController {
             });
     };
 
-    create(req: any, res: express.Response) {
+    create = (req: any, res: express.Response): void => {
         const userId: string = req.user._id;
 
         const postData = {
@@ -33,7 +33,9 @@ class MessageController {
             user: userId,
             dialog: req.body.dialog_id,
         };
+
         const message = new MessageModel(postData);
+
         message.save()
             .then((obj: any) => {
                 res.json(obj);
@@ -42,7 +44,7 @@ class MessageController {
                 res.json(reason);
             })
         ;
-    }
+    };
 
     delete = (req: express.Request, res: express.Response): void => {
         const id: string = req.params.id;

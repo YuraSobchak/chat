@@ -14,7 +14,7 @@ class UserController {
         this.io = io;
     }
 
-    show(req: express.Request, res: express.Response) {
+    show = (req: express.Request, res: express.Response): void => {
         const id: string = req.params.id;
         UserModel.findById(id, (err, user) => {
             if (err) {
@@ -24,9 +24,9 @@ class UserController {
             }
             res.json(user);
         });
-    }
+    };
 
-    me(req: any, res: express.Response) {
+    me = (req: any, res: express.Response): void => {
         const id: string = req.user._id;
         UserModel.findById(id, (err, user) => {
             if (err) {
@@ -36,9 +36,9 @@ class UserController {
             }
             res.json(user);
         });
-    }
+    };
 
-    create(req: express.Request, res: express.Response) {
+    create = (req: express.Request, res: express.Response): void => {
         const postData = {
             email: req.body.email,
             fullname: req.body.fullname,
@@ -53,7 +53,7 @@ class UserController {
                 res.json(reason);
             })
         ;
-    }
+    };
 
     delete = (req: express.Request, res: express.Response): void => {
         const id: string = req.params.id;
