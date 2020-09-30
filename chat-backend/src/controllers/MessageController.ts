@@ -1,7 +1,8 @@
 import express from 'express';
 import socket from 'socket.io';
 
-import { MessageModel } from "../models";
+import { MessageModel, DialogModel } from "../models";
+import { IMessage } from "../models/Message";
 
 class MessageController {
     io: socket.Server;
@@ -30,20 +31,33 @@ class MessageController {
 
         const postData = {
             text: req.body.text,
-            user: userId,
             dialog: req.body.dialog_id,
+            attachments: req.body.attachments,
+            user: userId,
         };
 
         const message = new MessageModel(postData);
 
-        message.save()
-            .then((obj: any) => {
-                res.json(obj);
+        message
+            .save()
+            .then((obj: IMessage) => {
+                obj.populate(
+                    "dialog",
+                    (err: any, message: IMessage) => {
+                        if (err) {
+                            return res.status(500).json({
+                                status: "error",
+                                message: err,
+                            });
+                        }
+                        res.json(message);
+                        this.io.emit("SERVER:NEW_MESSAGE", message);
+                    }
+                );
             })
-            .catch(reason => {
+            .catch((reason) => {
                 res.json(reason);
-            })
-        ;
+            });
     };
 
     delete = (req: express.Request, res: express.Response): void => {
