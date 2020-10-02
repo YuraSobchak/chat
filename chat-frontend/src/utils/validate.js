@@ -9,9 +9,12 @@ export default ({ isAuth, values, errors }) => {
         },
         password: (value) => {
             if (!value) {
-                errors.password = "Insert password";
-            } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/i.test(value)) {
-                errors.password = isAuth ? "Invalid password" : "";
+                errors.password = "Введите пароль";
+            } else if (
+                !isAuth &&
+                !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)
+            ) {
+                errors.password = "Слишком лёгкий пароль";
             }
         }
     };

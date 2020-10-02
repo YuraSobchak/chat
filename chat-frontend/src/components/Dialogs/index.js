@@ -21,7 +21,7 @@ const Dialogs = ({ items, userId, onSearch, inputValue, currentDialogId, onSelec
                     <DialogItem
                         onSelect={onSelectDialog}
                         key={item._id}
-                        isMe={item.user._id === userId}
+                        isMe={item.author._id === userId}
                         currentDialogId={currentDialogId}
                         {...item}
                     />
