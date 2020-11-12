@@ -1,6 +1,13 @@
 import { withFormik } from 'formik';
+import get from 'lodash/get';
+
 import RegisterForm from '../components/RegisterForm';
+
+import { openNotification } from '../../../utils/helpers';
 import validate from '../../../utils/validate';
+import { userActions } from '../../../redux/actions';
+
+import store from '../../../redux/store';
 
 export default withFormik({
     enableReinitialize: true,
@@ -8,7 +15,7 @@ export default withFormik({
         email: "",
         fullname: "",
         password: "",
-        repeatpassword: ""
+        password_2: ""
     }),
     validate: values => {
         const errors = {};
@@ -18,12 +25,31 @@ export default withFormik({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-        }, 1000);
+    handleSubmit: (values, { setSubmitting, props }) => {
+        store
+            .dispatch(userActions.fetchUserRegister(values))
+            .then(() => {
+                props.history.push('/signup/verify');
+                setSubmitting(false);
+            })
+            .catch(err => {
+                if (get(err, 'response.data.message.errmsg', '').indexOf('dup') >= 0) {
+                    return openNotification({
+                        title: 'Ошибка',
+                        text: 'Аккаунт с такой почтой уже создан.',
+                        type: 'error',
+                        duration: 5000
+                    });
+                } else {
+                    openNotification({
+                        title: 'Ошибка',
+                        text: 'Возникла серверная ошибка при регистрации. Повторите позже.',
+                        type: 'error',
+                        duration: 5000
+                    });
+                }
+                setSubmitting(false);
+            });
     },
-
     displayName: 'RegisterForm',
 })(RegisterForm);

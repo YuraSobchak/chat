@@ -9,7 +9,7 @@ export interface IUser extends Document {
     password: string;
     confirmed: boolean;
     avatar?: string;
-    confirm_hash?: string;
+    confirm_hash: string;
     last_seen?: Date;
 }
 

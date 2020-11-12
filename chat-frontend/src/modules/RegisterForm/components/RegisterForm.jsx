@@ -51,11 +51,18 @@ const RegisterForm = props => {
                             />
                         </Form.Item>
                         <Form.Item
-                            name="name"
+                            name="fullname"
+                            validateStatus={validateField("fullname", touched, errors)}
+                            help={!touched.fullname ? '' : errors.fullname}
+                            hasFeedback
                         >
                             <Input
+                                id="fullname"
                                 size='large'
                                 prefix={<UserOutlined className="site-form-item-icon"/>}
+                                value={values.fullname}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
                                 type="name"
                                 placeholder="Name"
                             />
@@ -78,14 +85,20 @@ const RegisterForm = props => {
                             />
                         </Form.Item>
                         <Form.Item
-                            name="repeatpassword"
-                            validateStatus={validateField("password", touched, errors)}
+                            name="password_2"
+                            validateStatus={validateField("password_2", touched, errors)}
+                            help={!touched.password_2 ? '' : errors.password_2}
+                            hasFeedback
                         >
                             <Input
+                                id="password_2"
                                 size='large'
                                 prefix={<LockOutlined className="site-form-item-icon"/>}
-                                type="password2"
+                                type="password"
                                 placeholder="Repeat password"
+                                value={values.password_2}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
                             />
                         </Form.Item>
                         <Form.Item>

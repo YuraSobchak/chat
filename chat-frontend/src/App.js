@@ -11,7 +11,7 @@ const App = props => {
             <Switch>
                 <Route
                     exact
-                    path={["/signin", "/signup"]}
+                    path={["/signin", "/signup", "/signup/verify"]}
                     component={Auth}
                 />
                 <Route

@@ -47,8 +47,13 @@ const Actions = {
                 });
             });
     },
-    fetchUserRegister: postData => () => {
-        return userApi.signUp(postData);
+    fetchUserRegister: postData => dispatch => {
+        return userApi
+            .signUp(postData)
+            .then(({ data }) => {
+                console.log(data);
+                return data;
+            });
     },
 };
 

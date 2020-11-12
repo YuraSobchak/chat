@@ -20,11 +20,8 @@ const createRoutes = (app: express.Express, io: socket.Server) => {
     app.use(checkAuth);
     app.use(updateLastSeen);
 
-    app.get("/", (_: express.Request, res: express.Response) => {
-        res.send("Hello, World!");
-    });
-
     app.get("/user/me", UserController.me);
+    app.get("/user/verify", UserController.verify);
     app.post("/user/signup", RegistrationValidation, UserController.create);
     app.post("/user/signin", LoginValidation, UserController.login);
     app.get("/user/:id", UserController.show);
