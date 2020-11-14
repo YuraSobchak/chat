@@ -17,13 +17,13 @@ const Dialogs = ({ fetchDialogs, currentDialogId, setCurrentDialogId, items, use
         setValue(value);
     };
 
-    // useEffect(() => {
-    //     if (!items.length) {
-    //         fetchDialogs();
-    //     } else {
-    //         setFilteredItems(items);
-    //     }
-    // }, [items]);
+    useEffect(() => {
+        if (!items.length) {
+            fetchDialogs();
+        } else {
+            setFilteredItems(items);
+        }
+    }, [items]);
 
     return (
         <BaseDialogs

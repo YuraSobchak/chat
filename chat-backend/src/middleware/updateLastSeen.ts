@@ -2,16 +2,22 @@ import express from "express";
 import {UserModel} from "../models";
 
 export default (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    UserModel.updateOne(
-        {
-            _id: '5f6ce974096b024caaea691a',
-        },
-        {
-            $set: {
-                last_seen: new Date()
+    if (req.user) {
+        UserModel.findOneAndUpdate(
+            { _id: req.user._id },
+            {
+                last_seen: new Date(),
+            },
+            { new: true },
+            function (err) {
+                if (err) {
+                    return res.status(500).json({
+                        status: "error",
+                        message: err,
+                    });
+                }
             }
-        },
-        () => {}
-    );
+        );
+    }
     next();
 }

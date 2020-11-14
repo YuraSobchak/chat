@@ -30,12 +30,13 @@ class UserController {
 
     me = (req: any, res: express.Response): void => {
         const id: string = req.user._id;
-        UserModel.findById(id, (err, user) => {
+        UserModel.findById(id, (err, user: any) => {
             if (err) {
                 return res.status(404).json({
                     message: "Not found"
                 });
             }
+            console.log(user.isOnline);
             res.json(user);
         });
     };
