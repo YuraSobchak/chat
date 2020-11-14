@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { LoginForm, RegisterForm } from '../../modules'
 
 import './Auth.scss';
-import CheckInfo from "../components/CheckInfo";
+import CheckInfo from "./components/CheckEmailInfo";
 
 const Auth = () => (
     <section className='auth'>

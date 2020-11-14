@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Result, Button, Spin } from 'antd';
 
-import { userApi } from '../../utils/api';
-import { Block } from '../../components';
+import { userApi } from '../../../utils/api';
+import { Block } from '../../../components';
 
 const renderTextInfo = ({ hash, verified }) => {
     if (hash) {
@@ -52,8 +52,6 @@ const CheckEmailInfo = ({ location, history }) => {
                 });
         }
     }, []);
-
-    console.log({ info, checking, verified, hash });
 
     return (
         <div className="verify-block">
