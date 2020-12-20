@@ -12,17 +12,18 @@ class MessageController {
     }
 
     index = (req: express.Request, res: express.Response): void => {
-        const dialogId = req.params.dialog;
+        const dialogId: any = req.query.dialog;
 
-        MessageModel.find()
-            .populate(['dialog'])
+        MessageModel.find({ dialog: dialogId })
+            .populate(["dialog", "user"])
             .exec(function (err, messages) {
                 if (err) {
                     return res.status(404).json({
-                        message: 'Messages not found',
+                        status: "error",
+                        message: "Messages not found",
                     });
                 }
-                return res.json(messages);
+                res.json(messages);
             });
     };
 
@@ -40,9 +41,9 @@ class MessageController {
 
         message
             .save()
-            .then((obj: IMessage) => {
+            .then((obj: any) => {
                 obj.populate(
-                    "dialog",
+                    ['dialog', 'user'],
                     (err: any, message: IMessage) => {
                         if (err) {
                             return res.status(500).json({

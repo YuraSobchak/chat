@@ -4,8 +4,14 @@ import classNames from 'classnames';
 
 import './Status.scss';
 
-const Status = ({ online }) => (
-    <div className={classNames('status', { 'status--online': online })}>{ online ? 'online' : 'offline' }</div>
+const Status = ({ online, fullname }) => (
+    <div className="chat__dialog-header-center">
+        <b className="chat__dialog-header-username">{fullname}</b>
+        <div className="chat__dialog-header-status">
+            <span className={classNames('status', { 'status--online': online })}>{ online ? 'online' : 'offline' }</span>
+        </div>
+    </div>
+
 );
 
 Status.propTypes = {

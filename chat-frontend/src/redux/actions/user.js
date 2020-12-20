@@ -51,7 +51,6 @@ const Actions = {
         return userApi
             .signUp(postData)
             .then(({ data }) => {
-                console.log(data);
                 return data;
             });
     },

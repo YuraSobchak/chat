@@ -3,19 +3,33 @@ import { connect } from 'react-redux';
 
 import { dialogsActions } from "../redux/actions";
 import { Dialogs as BaseDialogs } from "../components";
+import socket from "../core/socket";
 
 const Dialogs = ({ fetchDialogs, currentDialogId, setCurrentDialogId, items, userId }) => {
     const [inputValue, setValue] = useState("");
     const [filtered, setFilteredItems] = useState(Array.from(items));
 
-    const onChangeInput = value => {
+    const onChangeInput = (value = '') => {
         setFilteredItems(
             items.filter(
-                dialog => dialog.user.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0
+                (dialog => dialog.author.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0) ||
+                (dialog => dialog.partner.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0)
             )
         );
         setValue(value);
     };
+
+    const onNewDialog = () => {
+        fetchDialogs();
+    };
+
+    window.fetchDialogs = fetchDialogs;
+
+    useEffect(() => {
+        if (items.length) {
+            onChangeInput();
+        }
+    });
 
     useEffect(() => {
         if (!items.length) {
@@ -23,7 +37,10 @@ const Dialogs = ({ fetchDialogs, currentDialogId, setCurrentDialogId, items, use
         } else {
             setFilteredItems(items);
         }
-    }, [items]);
+
+        socket.on('SERVER:DIALOG_CREATED', onNewDialog());
+        return () => socket.removeListener('SERVER:NEW_MESSAGE', onNewDialog);
+    }, []);
 
     return (
         <BaseDialogs

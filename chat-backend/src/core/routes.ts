@@ -31,7 +31,7 @@ const createRoutes = (app: express.Express, io: socket.Server) => {
     app.delete("/dialog/delete/:id", DialogController.delete);
     app.post("/dialog/create", DialogController.create);
 
-    app.get("/dialog/messages/:id", MessageController.index);
+    app.get("/messages", MessageController.index);
     app.post("/dialog/addMessage", MessageController.create);
     app.delete("/messages/delete/:id", MessageController.delete);
 };
