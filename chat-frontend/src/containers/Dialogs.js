@@ -12,15 +12,12 @@ const Dialogs = ({ fetchDialogs, currentDialogId, setCurrentDialogId, items, use
     const onChangeInput = (value = '') => {
         setFilteredItems(
             items.filter(
-                (dialog => dialog.author.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0) ||
-                (dialog => dialog.partner.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0)
-            )
+                dialog =>
+                    dialog.author.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0 ||
+                    dialog.partner.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0,
+            ),
         );
         setValue(value);
-    };
-
-    const onNewDialog = () => {
-        fetchDialogs();
     };
 
     window.fetchDialogs = fetchDialogs;
@@ -29,17 +26,17 @@ const Dialogs = ({ fetchDialogs, currentDialogId, setCurrentDialogId, items, use
         if (items.length) {
             onChangeInput();
         }
-    });
+    }, [items]);
 
     useEffect(() => {
-        if (!items.length) {
-            fetchDialogs();
-        } else {
-            setFilteredItems(items);
-        }
+        fetchDialogs();
 
-        socket.on('SERVER:DIALOG_CREATED', onNewDialog());
-        return () => socket.removeListener('SERVER:NEW_MESSAGE', onNewDialog);
+        socket.on('SERVER:DIALOG_CREATED', fetchDialogs);
+        socket.on('SERVER:NEW_MESSAGE', fetchDialogs);
+        return () => {
+            socket.removeListener('SERVER:DIALOG_CREATED', fetchDialogs);
+            socket.removeListener('SERVER:NEW_MESSAGE', fetchDialogs);
+        };
     }, []);
 
     return (
