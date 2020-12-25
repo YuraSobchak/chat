@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Popover, Button } from "antd";
+import { EllipsisOutlined } from '@ant-design/icons';
 
 import {Time, IconRead, Avatar} from "../index";
 import { convertCurrentTime } from "../../utils/helpers";
@@ -67,7 +69,7 @@ const MessageAudio = ({audioSrc}) => {
     );
 };
 
-const Message = ({user, text, date, audio, isMe, isRead, attachments, isTyping}) => {
+const Message = ({user, text, date, audio, isMe, isRead, attachments, isTyping, onRemoveMessage}) => {
     return (
         <div
             className={classNames('message', {
@@ -79,6 +81,17 @@ const Message = ({user, text, date, audio, isMe, isRead, attachments, isTyping})
         >
             <div className="message__content">
                 <IconRead isMe={isMe} isRead={isRead}/>
+                <Popover
+                    content={
+                        <div>
+                            <Button onClick={onRemoveMessage}>Удалить сообщение</Button>
+                        </div>
+                    }
+                    trigger="click">
+                    <div className="message__icon-actions">
+                        <Button type="link" shape="circle" icon={<EllipsisOutlined/>} />
+                    </div>
+                </Popover>
                 <div className="message__avatar">
                     <Avatar user={user}/>
                 </div>

@@ -11,7 +11,8 @@ const Dialogs = ({
     addMessage,
     user,
     items,
-    isLoading
+    isLoading,
+    removeMessageById
 }) => {
     const messagesRef = useRef(null);
 
@@ -39,6 +40,7 @@ const Dialogs = ({
             blockRef={messagesRef}
             items={items}
             isLoading={isLoading}
+            onRemoveMessage={removeMessageById}
         />
     );
 };

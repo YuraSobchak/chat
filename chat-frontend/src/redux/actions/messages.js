@@ -23,6 +23,21 @@ const Actions = {
         type: 'MESSAGES:SET_IS_LOADING',
         payload: bool
     }),
+    removeMessageById: id => dispatch => {
+        if (window.confirm("Вы действительно хотите удалить сообщение?")) {
+            messagesApi
+                .removeById(id)
+                .then(({ data }) => {
+                    dispatch({
+                        type: "MESSAGES:REMOVE_MESSAGE",
+                        payload: id
+                    });
+                })
+                .catch(() => {
+                    dispatch(Actions.setIsLoading(false));
+                });
+        }
+    },
     fetchMessages: (dialogId) => dispatch => {
         dispatch(Actions.setIsLoading(true));
         messagesApi.getAllByDialogId(dialogId).then(({ data }) => {
