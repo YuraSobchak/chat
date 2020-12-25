@@ -28,6 +28,23 @@ class UserController {
         });
     };
 
+    findUsers = (req: express.Request, res: express.Response): void => {
+        const query: any = req.query.query;
+        UserModel.find()
+            .or([
+                { fullname: new RegExp(query, "i") },
+                { email: new RegExp(query, "i") },
+            ])
+            .then((users: IUser[]) => res.json(users))
+            .catch((err: any) => {
+                return res.status(404).json({
+                    status: "error",
+                    message: err,
+                });
+            });
+    };
+
+
     me = (req: any, res: express.Response): void => {
         const id: string = req.user._id;
         UserModel.findById(id, (err, user: any) => {

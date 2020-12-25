@@ -24,6 +24,7 @@ const createRoutes = (app: express.Express, io: socket.Server) => {
     app.get("/user/verify", UserController.verify);
     app.post("/user/signup", RegistrationValidation, UserController.create);
     app.post("/user/signin", LoginValidation, UserController.login);
+    app.get("/user/find", UserController.findUsers);
     app.get("/user/:id", UserController.show);
     app.delete("/user/delete/:id", UserController.delete);
 
