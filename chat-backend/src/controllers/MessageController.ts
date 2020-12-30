@@ -78,24 +78,64 @@ class MessageController {
     };
 
     delete = (req: express.Request, res: express.Response): void => {
-        const id: string = req.params.id;
-        MessageModel.findOneAndRemove({ _id: id })
-            .then((message) => {
-                if (message) {
-                    res.json({
-                        message: `Message deleted`,
-                    });
-                } else {
-                    res.status(404).json({
-                        status: "error",
-                    });
-                }
-            })
-            .catch((err: any) => {
-                res.json({
-                    message: err,
+        const id: any = req.params.id;
+        const userId: string = req.user._id;
+
+        MessageModel.findById(id, (err, message: any) => {
+            if (err || !message) {
+                return res.status(404).json({
+                    status: "error",
+                    message: "Message not found",
                 });
-            });
+            }
+
+            if (message.user.toString() === userId) {
+                const dialogId = message.dialog;
+                message.remove();
+
+                MessageModel.findOne(
+                    { dialog: dialogId },
+                    {},
+                    (err, lastMessage) => {
+                        if (err) {
+                            res.status(500).json({
+                                status: "error",
+                                message: err,
+                            });
+                        }
+
+                        DialogModel.findById(dialogId, (err, dialog) => {
+                            if (err) {
+                                res.status(500).json({
+                                    status: "error",
+                                    message: err,
+                                });
+                            }
+
+                            if (!dialog) {
+                                return res.status(404).json({
+                                    status: "not found",
+                                    message: err,
+                                });
+                            }
+
+                            dialog.lastMessage = lastMessage ? lastMessage : "";
+                            dialog.save();
+                        });
+                    }
+                ).sort({'createdAt':-1});
+
+                return res.json({
+                    status: "success",
+                    message: "Message deleted",
+                });
+            } else {
+                return res.status(403).json({
+                    status: "error",
+                    message: "Not have permission",
+                });
+            }
+        });
     };
 }
 
