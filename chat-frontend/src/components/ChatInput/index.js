@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { Input, Button } from "antd";
 import { SmileOutlined, CameraOutlined, AudioOutlined, CheckCircleOutlined } from "@ant-design/icons";
@@ -6,6 +6,8 @@ import { UploadField } from '@navjobs/upload';
 import { Picker } from 'emoji-mart';
 
 import './ChatInput.scss';
+
+const { TextArea } = Input;
 
 const ChatInput = props => {
     const [value, setValue] = useState("");
@@ -23,11 +25,29 @@ const ChatInput = props => {
         }
     };
 
+    const addEmoji = ({ colons }) => {
+        setValue((value + " " + colons).trim());
+    };
+
+    const handleOutsideClick = (el, e) => {
+        if (el && !el.contains(e.target)) {
+            setShowEmojiPicker(false);
+        }
+    };
+
+    useEffect(() => {
+        const el = document.querySelector('.chat-input__smile-btn');
+        document.addEventListener('click', handleOutsideClick.bind(this, el));
+        return () => {
+            document.removeEventListener('click', handleOutsideClick.bind(this, el));
+        };
+    }, []);
+
     return (
         <div className="chat-input">
             <div className="chat-input__smile-btn">
                 {emojiPickerVisible && (<div className="chat-input__emoji-picker">
-                    <Picker set='google' />
+                    <Picker onSelect={(emojiTag) => addEmoji(emojiTag)} set='google' />
                 </div>)}
                 <Button
                     onClick={toggleEmojiPicker}
@@ -35,12 +55,13 @@ const ChatInput = props => {
                     shape="circle"
                     icon={<SmileOutlined/>}/>
             </div>
-            <Input
+            <TextArea
                 size="large"
                 onChange={e => setValue(e.target.value)}
                 onKeyUp={handleSendMessage}
                 placeholder="Insert your message"
                 value={value}
+                autosize={{ minRows: 1, maxRows: 6 }}
             />
             <div className="chat-input__actions">
                 <UploadField
