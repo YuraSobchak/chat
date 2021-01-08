@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { messagesActions } from "../redux/actions";
 import { Messages as BaseMessages } from "../components";
 import socket from "../core/socket";
+import {Empty} from "antd";
 
 const Dialogs = ({
     currentDialogId,
@@ -31,8 +32,14 @@ const Dialogs = ({
     }, [currentDialogId]);
 
     useEffect(() => {
-        messagesRef.current.scrollTo(0, 9999);
+        if (currentDialogId) {
+            messagesRef.current.scrollTo(0, 9999);
+        }
     }, [items]);
+
+    if (!currentDialogId) {
+        return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}/>;
+    }
 
     return (
         <BaseMessages

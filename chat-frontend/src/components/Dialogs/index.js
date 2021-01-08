@@ -6,7 +6,7 @@ import { DialogItem } from "../index";
 
 import './Dialogs.scss';
 
-const Dialogs = ({ items, userId, onSearch, inputValue, currentDialogId, onSelectDialog }) => {
+const Dialogs = ({ items, userId, onSearch, inputValue, currentDialogId }) => {
     return (
         <div className="dialogs">
             <div className="dialogs__search">
@@ -19,7 +19,6 @@ const Dialogs = ({ items, userId, onSearch, inputValue, currentDialogId, onSelec
             {items.length ? (
                 orderBy(items, ['created_at'], ['desc']).map(item => (
                     <DialogItem
-                        onSelect={onSelectDialog}
                         key={item._id}
                         isMe={item.author._id === userId}
                         currentDialogId={currentDialogId}

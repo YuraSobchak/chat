@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import format from 'date-fns/format';
 import {parseISO} from 'date-fns';
 import isToday from 'date-fns/isToday';
+import { Link } from 'react-router-dom';
 
 import {IconRead, Avatar} from "../index";
 
@@ -22,37 +23,37 @@ const DialogItem = ({
     unread,
     isMe,
     currentDialogId,
-    onSelect,
     lastMessage
 }) => {
     return (
-        <div
-            className={classNames("dialogs__item", {
-                'dialogs__item--online': lastMessage.user.isOnline,
-                'dialogs__item--selected': currentDialogId === _id
-            })}
-            onClick={onSelect.bind(this, _id)}
-        >
-            <div className="dialogs__item-avatar">
-                <Avatar user={lastMessage.user}/>
-            </div>
-            <div className="dialogs__item-info">
-                <div className="dialogs__item-info-top">
-                    <b>{lastMessage.user.fullname}</b>
-                    <span>
-                        {getMessageTime(lastMessage.createdAt)}
-                    </span>
+        <Link to={`/dialog/${_id}`}>
+            <div
+                className={classNames("dialogs__item", {
+                    'dialogs__item--online': lastMessage.user.isOnline,
+                    'dialogs__item--selected': currentDialogId === _id
+                })}
+            >
+                <div className="dialogs__item-avatar">
+                    <Avatar user={lastMessage.user}/>
                 </div>
-                <div className="dialogs__item-info-bottom">
-                    <p>{lastMessage.text}</p>
-                    {isMe ?
-                        <IconRead isMe={true} isRead={true}/>
-                        : (unread > 0) &&
-                        <div className="dialogs__item-info-bottom-count">{unread > 9 ? '9+' : unread}</div>
-                    }
+                <div className="dialogs__item-info">
+                    <div className="dialogs__item-info-top">
+                        <b>{lastMessage.user.fullname}</b>
+                        <span>
+                            {getMessageTime(lastMessage.createdAt)}
+                        </span>
+                    </div>
+                    <div className="dialogs__item-info-bottom">
+                        <p>{lastMessage.text}</p>
+                        {isMe ?
+                            <IconRead isMe={true} isRead={true}/>
+                            : (unread > 0) &&
+                            <div className="dialogs__item-info-bottom-count">{unread > 9 ? '9+' : unread}</div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
