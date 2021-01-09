@@ -23,6 +23,7 @@ const Messages = ({ user, blockRef, isLoading, items, onRemoveMessage }) => {
                             {...item}
                             isMe={ user._id === item.user._id }
                             onRemoveMessage={onRemoveMessage.bind(this, item._id)}
+                            isRead={item.read}
                         />
                     ))
                 ) : (
