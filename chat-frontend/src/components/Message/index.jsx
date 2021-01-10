@@ -77,7 +77,7 @@ const Message = ({user, text, date, audio, isMe, isRead, attachments, isTyping, 
             className={classNames('message', {
                 'message--isme': isMe,
                 'message--is-typing': isTyping,
-                'message--image': attachments && attachments.length === 1,
+                'message--image': attachments && attachments.length === 1 && !text,
                 'message--is-audio': audio,
             })}
         >
@@ -100,9 +100,13 @@ const Message = ({user, text, date, audio, isMe, isRead, attachments, isTyping, 
                 <div className="message__info">
                     {(audio || text || isTyping) &&
                     <div className="message__bubble">
-                        {text && <p className="message__text">{reactStringReplace(text, /:(.+?):/g, (match, i) => (
-                            <Emoji emoji={match} set='google' size={16}/>
-                        ))}</p>}
+                        {text && (
+                            <p className="message__text">
+                                {reactStringReplace(text, /:(.+?):/g, (match, i) => (
+                                    <Emoji key={i} emoji={match} set="apple" size={16} />
+                                ))}
+                            </p>
+                        )}
                         {isTyping && (
                             <div className="message__typing">
                                 <span/>

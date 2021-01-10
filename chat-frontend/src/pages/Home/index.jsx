@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { withRouter } from 'react-router';
-import { EllipsisOutlined } from '@ant-design/icons';
 import {connect} from "react-redux";
-import { Button } from "antd";
 
 import { Sidebar, Messages, ChatInput, Status } from "../../containers";
 import './Home.scss';
@@ -18,25 +16,19 @@ const Home = props => {
     }, [props.location.pathname]);
 
     return (
-        <section className='home'>
+        <section className="home">
             <div className="chat">
-                <Sidebar/>
+                <Sidebar />
                 <div className="chat__dialog">
-                    <div className="chat__dialog-header">
-                        <div/>
-                        <Status online/>
-                        <Button type="link" shape="circle" icon={<EllipsisOutlined/>}/>
-                    </div>
-                    <div className="chat__dialog-messages">
-                        <Messages/>
-                    </div>
+                    <Status />
+                    <Messages />
                     <div className="chat__dialog-input">
-                        <ChatInput/>
+                        <ChatInput />
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 };
 
 export default withRouter(connect(

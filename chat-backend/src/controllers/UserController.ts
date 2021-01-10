@@ -16,7 +16,7 @@ class UserController {
         this.io = io;
     }
 
-    show = (req: express.Request, res: express.Response): void => {
+    show = (req: any, res: express.Response): void => {
         const id: string = req.params.id;
         UserModel.findById(id, (err, user) => {
             if (err) {
@@ -28,7 +28,7 @@ class UserController {
         });
     };
 
-    findUsers = (req: express.Request, res: express.Response): void => {
+    findUsers = (req: any, res: express.Response): void => {
         const query: any = req.query.query;
         UserModel.find()
             .or([
@@ -58,7 +58,7 @@ class UserController {
         });
     };
 
-    create = (req: express.Request, res: express.Response): void => {
+    create = (req: any, res: express.Response): void => {
         const postData = {
             email: req.body.email,
             fullname: req.body.fullname,
@@ -86,7 +86,7 @@ class UserController {
         }
     };
 
-    delete = (req: express.Request, res: express.Response): void => {
+    delete = (req: any, res: express.Response): void => {
         const id: string = req.params.id;
         UserModel.findOneAndRemove({ _id: id })
             .then((user) => {
@@ -107,7 +107,7 @@ class UserController {
             });
     };
 
-    login = (req: express.Request, res: express.Response): void => {
+    login = (req: any, res: express.Response): void => {
         const postData: { email: string; password: string } = {
             email: req.body.email,
             password: req.body.password,
@@ -141,7 +141,7 @@ class UserController {
         }
     };
 
-    verify = (req: express.Request, res: express.Response): void => {
+    verify = (req: any, res: express.Response): void => {
         const hash: any =  req.query.hash;
 
         console.log(hash);

@@ -1,7 +1,10 @@
 .chat-input {
-    display: flex;
     position: relative;
     padding: 20px;
+
+    & > div {
+        display: flex;
+    }
 
     &__smile-btn {
         margin-right: 15px;
@@ -19,6 +22,11 @@
         position: absolute;
         bottom: 70px;
         z-index: 1;
+    }
+
+    &__attachments {
+        padding-top: 10px;
+        padding-left: 47px;
     }
 
     &__actions {

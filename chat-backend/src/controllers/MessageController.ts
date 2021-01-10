@@ -11,7 +11,7 @@ class MessageController {
         this.io = io;
     }
 
-    index = (req: express.Request, res: express.Response): void => {
+    index = (req: any, res: express.Response): void => {
         const dialogId: any = req.query.dialog;
         const userId: any = req.user._id;
 
@@ -31,7 +31,7 @@ class MessageController {
         );
 
         MessageModel.find({ dialog: dialogId })
-            .populate(["dialog", "user"])
+            .populate(["dialog", "user", "attachments"])
             .exec(function (err, messages) {
                 if (err) {
                     return res.status(404).json({
@@ -59,7 +59,7 @@ class MessageController {
             .save()
             .then((obj: any) => {
                 obj.populate(
-                    ['dialog', 'user'],
+                    ['dialog', 'user', 'attachments'],
                     (err: any, message: IMessage) => {
                         if (err) {
                             return res.status(500).json({
@@ -93,7 +93,7 @@ class MessageController {
             });
     };
 
-    delete = (req: express.Request, res: express.Response): void => {
+    delete = (req: any, res: express.Response): void => {
         const id: any = req.params.id;
         const userId: string = req.user._id;
 

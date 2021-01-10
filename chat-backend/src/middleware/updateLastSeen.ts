@@ -1,7 +1,7 @@
 import express from "express";
 import {UserModel} from "../models";
 
-export default (req: express.Request, res: express.Response, next: express.NextFunction) => {
+export default (req: any, res: express.Response, next: express.NextFunction) => {
     if (req.user) {
         UserModel.findOneAndUpdate(
             { _id: req.user._id },
